@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adeel Haider | Founder @ AdBis</title>
+    <title>Adeel Haider | Founder @ Ad-Bis Marketing Hub</title>
     <style>
         /* Core Brand Variables */
         :root {
-            --bg-deep: #0F172A; /* Deep premium slate, not harsh black */
+            --bg-deep: #0F172A; 
             --bg-card: #1E293B;
             --text-main: #F8FAFC;
             --text-muted: #94A3B8;
-            --accent: #00CED1; /* AdBis Teal */
+            --accent: #00CED1; /* Ad-Bis Teal */
             --accent-glow: rgba(0, 206, 209, 0.4);
         }
         
@@ -96,7 +96,7 @@
             padding-bottom: 5px;
         }
 
-        /* Hero Section (Glowing Elements) */
+        /* Hero Section */
         #hero {
             text-align: center;
             padding-top: 150px;
@@ -105,7 +105,6 @@
             align-items: center;
         }
 
-        /* Profile & Logo Glowing Animation */
         .glow-avatar {
             width: 160px;
             height: 160px;
@@ -143,9 +142,18 @@
             margin-bottom: 30px;
         }
 
-        /* Interactive Buttons */
+        /* Button Architecture */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+        }
+
         .btn-primary {
-            display: inline-block;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
             background: rgba(0, 206, 209, 0.1);
             color: var(--accent);
             border: 1px solid var(--accent);
@@ -164,7 +172,7 @@
             transform: translateY(-2px);
         }
 
-        /* CV & Experience Cards */
+        /* CV Grid */
         .cv-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -190,7 +198,7 @@
         .card ul { margin-left: 20px; color: var(--text-muted); }
         .card li { margin-bottom: 8px; }
 
-        /* Portfolio Brand Grid */
+        /* Brand Grid */
         .brand-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -241,6 +249,25 @@
             border-top: 1px solid rgba(0, 206, 209, 0.2);
             margin-top: 50px;
         }
+
+        /* 📱 MOBILE RESPONSIVENESS FIXES */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-brand { font-size: 1.2rem; } /* Shrink full name for mobile */
+            .nav-links { display: flex; gap: 20px; }
+            .nav-links a { margin-left: 0; font-size: 0.95rem; }
+            
+            #hero { padding-top: 140px; }
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 1rem; }
+            .hero-pitch { font-size: 1.05rem; padding: 0 10px; }
+            
+            /* Button Stacking for Mobile */
+            .hero-buttons { flex-direction: column; width: 100%; max-width: 320px; margin: auto; }
+            .btn-primary { width: 100%; text-align: center; }
+            
+            .section-title { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -248,62 +275,60 @@
     <div class="ambient-glow"></div>
 
     <nav>
-        <a href="#hero" class="nav-brand">AdBis<span>.</span> Hub</a>
+        <a href="#hero" class="nav-brand">Ad-Bis<span>.</span> Marketing Hub</a>
         <div class="nav-links">
-            <a href="#resume">CV & Experience</a>
-            <a href="#portfolio">Client Brands</a>
+            <a href="#resume">Expertise</a>
+            <a href="#portfolio">Client Portfolio</a>
         </div>
     </nav>
 
     <section id="hero">
         <img src="https://github.com/adeel-digital.png" alt="Adeel Haider" class="glow-avatar">
         <h1>Adeel Haider</h1>
-        <h2>Software Engineer × Marketing Architect</h2>
+        <h2>Growth Marketer × Brand Architect</h2>
         
         <p class="hero-pitch">
-            Balancing rigorous Software Engineering with high-ticket Digital Marketing. I build scalable digital ecosystems, acquire clients through data-driven Meta Ads, and engineer aesthetic frontend UI to drive global brand growth.
+            I transform digital presence into measurable revenue. Specializing in high-ticket Meta Ads, organic social media growth, and brand scaling. I build automated marketing engines that capture attention and convert it into loyal customers.
         </p>
 
-        <img src="https://github.com/user-attachments/assets/ccdadba2-55da-4d4a-a935-83cb9b34d230" alt="AdBis Logo" class="adbis-badge">
+        <img src="https://github.com/user-attachments/assets/ccdadba2-55da-4d4a-a935-83cb9b34d230" alt="Ad-Bis Marketing Hub Logo" class="adbis-badge">
 
-        <div>
-            <a href="https://www.linkedin.com/in/adeel-haider-0b89a8305" target="_blank" class="btn-primary">✦ LinkedIn Profile</a>
-            <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary" style="margin-left: 10px;">✦ AdBis Hub (Instagram)</a>
+        <div class="hero-buttons">
+            <a href="https://www.linkedin.com/in/adeel-haider-0b89a8305" target="_blank" class="btn-primary">✦ Connect on LinkedIn</a>
+            <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary">✦ Ad-Bis Marketing Hub</a>
         </div>
     </section>
 
     <section id="resume">
-        <h2 class="section-title">Professional Architecture (CV)</h2>
+        <h2 class="section-title">Professional Architecture</h2>
         
         <div class="cv-grid">
+            <div class="card">
+                <h3>Founder & Marketing Specialist</h3>
+                <h4>Ad-Bis Marketing Hub | Present</h4>
+                <ul>
+                    <li>Scaling e-commerce and local businesses through targeted Meta Ads and data-driven marketing funnels.</li>
+                    <li>Designing and executing comprehensive Social Media Marketing (SMM) strategies for maximum ROI.</li>
+                    <li>Architected official creative branding for <b>Global Game Jam 2025</b> (IGDA @ CUST).</li>
+                </ul>
+            </div>
+
             <div class="card">
                 <h3>Digital Marketing Intern</h3>
                 <h4>RAN Digital Agency | Duration: 6 Months</h4>
                 <ul>
-                    <li>Engineered and managed end-to-end social media campaigns.</li>
-                    <li>Designed high-converting ad creatives and handled client relations.</li>
-                    <li>Executed performance optimization and rigorous analytics tracking.</li>
-                    <li>Collaborated with multiple local brands to establish digital authority.</li>
+                    <li>Spearheaded end-to-end social media marketing campaigns, focusing on audience engagement and brand awareness.</li>
+                    <li>Developed high-converting ad creatives and maintained strong client relationships.</li>
+                    <li>Analyzed campaign metrics to optimize performance, significantly lowering Cost Per Acquisition (CPA).</li>
                 </ul>
             </div>
 
-            <div class="card">
-                <h3>Founder & Marketing Architect</h3>
-                <h4>AdBis Marketing Hub | Present</h4>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3>Certifications & The Analytical Edge</h3>
+                <h4>Bridging Tech with Marketing Psychology</h4>
                 <ul>
-                    <li>Scaling e-commerce and local businesses through Meta Ads and system automation.</li>
-                    <li>Designed official creative assets for <b>Global Game Jam 2025</b> (IGDA @ CUST).</li>
-                    <li>Actively upgrading frontend development skills alongside advanced marketing systems.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>Academic & Certifications</h3>
-                <h4>Core Knowledge Base</h4>
-                <ul>
-                    <li><b>BSc. Software Engineering</b> - Capital University of Science and Technology (CUST) - 4th Semester.</li>
-                    <li><b>Certified Digital Marketer</b> - NSU H-8, Islamabad.</li>
-                    <li>Focus: C++, OOP, Data Structures, and System Efficiency.</li>
+                    <li><b>Certified Digital Marketer</b> - NSU H-8, Islamabad. Mastery in SMM, SEO, and Meta Business Suite.</li>
+                    <li><b>BSc. Software Engineering</b> - CUST (4th Semester). My technical background provides a deep analytical advantage in understanding algorithms, system efficiencies, and data structures.</li>
                 </ul>
             </div>
         </div>
@@ -323,9 +348,9 @@
                             <span>E-Commerce Scaling</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Architected digital presence and deployed advanced Meta Ad systems to drive consistent e-commerce sales.</p>
+                    <p class="brand-desc">Engineered high-ROAS Meta Ads and managed end-to-end digital presence to drive consistent e-commerce sales.</p>
                 </div>
-                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">View Campaign ↗</a>
+                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-primary" style="width: 100%;">View Campaign ↗</a>
             </div>
 
             <div class="brand-card">
@@ -334,12 +359,12 @@
                         <img src="https://ui-avatars.com/api/?name=Al+Rehman&background=1E293B&color=00CED1&bold=true" alt="Al Rehman" class="brand-logo">
                         <div class="brand-info">
                             <h3>Al Rehman Interiors</h3>
-                            <span>Digital Authority Branding</span>
+                            <span>Brand Authority</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Structured complete digital identity and managed posts to establish authority in premium interior design.</p>
+                    <p class="brand-desc">Structured their digital identity from the ground up, dominating the premium interior design niche through targeted content.</p>
                 </div>
-                <a href="https://www.facebook.com/Alrahmaninterior/" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">View Digital Identity ↗</a>
+                <a href="https://www.facebook.com/Alrahmaninterior/" target="_blank" class="btn-primary" style="width: 100%;">View Digital Identity ↗</a>
             </div>
 
             <div class="brand-card">
@@ -348,12 +373,12 @@
                         <img src="https://ui-avatars.com/api/?name=Estimation+Experts&background=1E293B&color=00CED1&bold=true" alt="Estimation" class="brand-logo">
                         <div class="brand-info">
                             <h3>Estimation Experts</h3>
-                            <span>Frontend Architecture</span>
+                            <span>B2B Client Acquisition</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Developed a business website with structured UI and a highly optimized, client-focused layout.</p>
+                    <p class="brand-desc">Designed a highly optimized, conversion-focused layout to establish authority and capture high-ticket B2B leads.</p>
                 </div>
-                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Visit Live Website ↗</a>
+                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-primary" style="width: 100%;">Visit Live Website ↗</a>
             </div>
 
             <div class="brand-card">
@@ -365,9 +390,9 @@
                             <span>Performance Marketing</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Ran high-yield social media campaigns and creatives to directly boost brand engagement and sales.</p>
+                    <p class="brand-desc">Executed viral social media campaigns and creative strategies to directly boost brand engagement and sales volume.</p>
                 </div>
-                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">View Case Study ↗</a>
+                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-primary" style="width: 100%;">View Case Study ↗</a>
             </div>
 
             <div class="brand-card">
@@ -376,12 +401,12 @@
                         <img src="https://ui-avatars.com/api/?name=Mingle+Munch&background=1E293B&color=00CED1&bold=true" alt="Mingle" class="brand-logo">
                         <div class="brand-info">
                             <h3>The Mingle Munch</h3>
-                            <span>Brand Identity</span>
+                            <span>Brand Strategy</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Handled page creation, content strategy, and promotional campaigns from scratch.</p>
+                    <p class="brand-desc">Developed foundational content strategy, handled page creation, and ran high-impact promotional campaigns.</p>
                 </div>
-                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">View Social Profile ↗</a>
+                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-primary" style="width: 100%;">View Social Profile ↗</a>
             </div>
 
             <div class="brand-card">
@@ -393,18 +418,18 @@
                             <span>Social Architecture</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Built foundational brand identity and scalable social media presence to capture local market share.</p>
+                    <p class="brand-desc">Built a scalable social media presence to capture local market share and generate consistent inbound inquiries.</p>
                 </div>
-                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">View Brand ↗</a>
+                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-primary" style="width: 100%;">View Brand ↗</a>
             </div>
 
         </div>
     </section>
 
     <div class="footer-cta">
-        <h2 style="color: #fff; margin-bottom: 10px;">Ready to Systemize Your Growth?</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">Let's engineer your brand's digital infrastructure.</p>
-        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary" style="padding: 15px 35px; font-size: 1.1rem;">Contact AdBis Hub ↗</a>
+        <h2 style="color: #fff; margin-bottom: 10px;">Ready to Scale Your Revenue?</h2>
+        <p style="color: var(--text-muted); margin-bottom: 30px;">Let's discuss how we can engineer your brand's digital growth.</p>
+        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary" style="padding: 15px 35px; font-size: 1.1rem;">Contact Ad-Bis Marketing Hub ↗</a>
     </div>
 
 </body>
