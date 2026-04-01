@@ -3,312 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adeel Haider | Founder @ AdBis</title>
+    <title>Adeel Haider | AdBis Marketing Hub</title>
     <style>
+        /* Core Variables & Reset */
+        :root {
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC; /* Soft slate white */
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --accent: #00CED1; /* AdBis Teal */
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
         }
+
         body {
-            background-color: #050b14;
-            color: #E6E6E6;
-            line-height: 1.6;
-            padding: 0 20px 50px 20px;
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.7;
             overflow-x: hidden;
         }
-        
-        .ambient-glow {
-            position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 206, 209, 0.15) 0%, rgba(5, 11, 20, 0) 70%);
-            z-index: -1;
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            position: relative;
+        .animate-up {
+            animation: fadeInUp 1s ease forwards;
         }
 
-        .header {
-            text-align: center;
-            padding: 60px 0 40px 0;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #00CED1;
-            box-shadow: 0 0 25px rgba(0, 206, 209, 0.4);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-        .profile-pic:hover { transform: scale(1.05); }
-
-        h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            letter-spacing: -1px;
-            margin-bottom: 5px;
-        }
-        h2 {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #00CED1;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
-
-        .adbis-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            animation: floatGlow 3s infinite alternate;
-            margin-bottom: 30px;
-            border: 1px solid rgba(0, 206, 209, 0.2);
-        }
-
-        @keyframes floatGlow {
-            0% { transform: translateY(0); box-shadow: 0 0 10px rgba(0, 206, 209, 0.2); }
-            100% { transform: translateY(-10px); box-shadow: 0 0 30px rgba(0, 206, 209, 0.6); }
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Navigation Architecture */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            text-align: center;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #E2E8F0;
         }
 
-        p.pitch {
-            font-size: 1.1rem;
-            color: #A0AABF;
-            max-width: 800px;
-            margin: auto;
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .nav-brand span { color: var(--accent); }
+
+        .nav-links a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* General Section Layout */
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .section-title {
-            color: #ffffff;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            text-align: center;
-            border-bottom: 1px solid rgba(0, 206, 209, 0.3);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .text-center { text-align: center; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
-
-        .project-card {
-            background: rgba(10, 17, 32, 0.6);
-            border: 1px solid rgba(0, 206, 209, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #00CED1;
-            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.15);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
         }
         
-        /* New Brand Header Architecture */
-        .brand-header {
-            display: flex;
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+        }
+
+        /* Hero Section (Home) */
+        #home {
+            background-color: var(--bg-secondary);
+            text-align: center;
             align-items: center;
-            gap: 15px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #FFFFFF;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 206, 209, 0.3);
+        }
+
+        /* Cards Architecture (Services) */
+        #services { background-color: var(--bg-primary); }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 15px;
         }
-        .brand-logo {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 1px solid rgba(0, 206, 209, 0.4);
-            background: #050b14;
-        }
-        
-        .brand-info h3 {
-            color: #ffffff;
-            font-size: 1.3rem;
-            margin-bottom: 2px;
-        }
-        .project-category {
-            font-size: 0.8rem;
-            color: #00CED1;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .project-card p {
-            color: #8892B0;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            margin-top: 10px;
-        }
 
-        .link-btn {
-            display: inline-block;
-            background: rgba(0, 206, 209, 0.1);
-            color: #00CED1;
-            border: 1px solid #00CED1;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+        /* Slideshow Architecture (Portfolio) */
+        #portfolio {
+            background-color: var(--bg-secondary);
             text-align: center;
         }
-        .link-btn:hover {
-            background: #00CED1;
-            color: #050b14;
+
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            background: #FFFFFF;
         }
 
+        .slide {
+            display: none;
+            padding: 60px 40px;
+            animation: fadeEffect 1.5s;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .slide h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .slide p { color: var(--text-muted); font-size: 1.1rem; }
+
+        .slide-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            padding: 16px;
+            color: var(--text-dark);
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s ease;
+            user-select: none;
+            background: rgba(255,255,255,0.8);
+            border: none;
+        }
+
+        .prev:hover, .next:hover { background-color: var(--accent); color: white; }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 20px;
+        }
     </style>
 </head>
 <body>
 
-<div class="ambient-glow"></div>
+    <nav>
+        <a href="#home" class="nav-brand">AdBis<span>.</span></a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Architecture</a>
+            <a href="#portfolio">Portfolio</a>
+        </div>
+    </nav>
 
-<div class="container">
-    <div class="header">
-        <img src="https://github.com/adeel-digital.png" alt="Adeel Haider" class="profile-pic">
-        <h1>Adeel Haider</h1>
-        <h2>Digital Marketing Architect</h2>
-        <img src="https://github.com/user-attachments/assets/ccdadba2-55da-4d4a-a935-83cb9b34d230" alt="AdBis Logo" class="adbis-logo">
-    </div>
+    <section id="home" class="animate-up">
+        <h1 class="hero-title">Engineering Digital <br><span style="color: var(--accent);">Ecosystems</span></h1>
+        <p class="hero-desc">We bridge high-end frontend architecture with data-driven Meta Ads to scale global brands and optimize client acquisition systems.</p>
+        <a href="#portfolio" class="btn-primary">View Global Portfolio</a>
+    </section>
 
-    <div class="glass-card">
-        <p class="pitch">
-            I do not just run campaigns; I engineer <b>scalable digital ecosystems</b>. As the founder of AdBis Marketing Hub, I merge software engineering logic with high-ticket marketing psychology. My systems are designed for one purpose: optimizing ROAS and driving relentless client acquisition.
-        </p>
-    </div>
-
-    <div class="text-center">
-        <h2 class="section-title">The Portfolio Architecture</h2>
-    </div>
-
-    <div class="grid">
+    <section id="services">
+        <h2 class="section-title">System Architecture</h2>
+        <p class="section-subtitle">Core competencies driving revenue and scale.</p>
         
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Tulip+Attire&background=0A1120&color=00CED1&bold=true" alt="Tulip Attire" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>Tulip Attire</h3>
-                        <span class="project-category">E-Commerce Scaling</span>
-                    </div>
-                </div>
-                <p>Architected full-stack digital presence and deployed advanced Meta Ad systems to drive consistent e-commerce growth and maximize ROAS.</p>
+        <div class="card-grid">
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Performance Marketing</h3>
+                <p>High-yield Meta Ads, rigorous ROAS optimization, and data-driven client acquisition funnels designed for rapid scaling.</p>
             </div>
-            <a href="APNA_TULIP_LINK_YAHAN_DALEIN" class="link-btn">View Live Campaign ↗</a>
-        </div>
-
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Al+Rehman&background=0A1120&color=00CED1&bold=true" alt="Al Rehman Interiors" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>Al Rehman Interiors</h3>
-                        <span class="project-category">Digital Authority Branding</span>
-                    </div>
-                </div>
-                <p>Structured the complete digital identity and managed branding strategies to establish authority in the premium interior design sector.</p>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Frontend Engineering</h3>
+                <p>Developing seamless, fast, and conversion-optimized web interfaces that convert digital attention into tangible business assets.</p>
             </div>
-            <a href="APNA_ALREHMAN_LINK_YAHAN_DALEIN" class="link-btn">View Digital Presence ↗</a>
-        </div>
-
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Unique+Interior&background=0A1120&color=00CED1&bold=true" alt="Unique Interior" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>Unique Interior</h3>
-                        <span class="project-category">Social Architecture</span>
-                    </div>
-                </div>
-                <p>Built foundational brand identity and scalable social media presence from scratch to capture local market share.</p>
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3>Brand Authority</h3>
+                <p>Structuring complete digital identities from scratch, utilizing sophisticated social media architectures to dominate local markets.</p>
             </div>
-            <a href="APNA_UNIQUE_LINK_YAHAN_DALEIN" class="link-btn">View Brand Profile ↗</a>
         </div>
+    </section>
 
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Estimation+Experts&background=0A1120&color=00CED1&bold=true" alt="Estimation Experts" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>Estimation Experts</h3>
-                        <span class="project-category">Frontend Architecture</span>
-                    </div>
-                </div>
-                <p>Developed a high-end business website focusing on clean UI, structural integrity, and a conversion-optimized layout.</p>
+    <section id="portfolio">
+        <h2 class="section-title">Client Portfolio</h2>
+        <p class="section-subtitle">Verified ecosystems engineered by AdBis Marketing Hub.</p>
+
+        <div class="slideshow-container">
+            
+            <div class="slide">
+                <h3>Tulip Attire</h3>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">E-Commerce Scaling</p>
+                <p>Architected full-stack digital presence and deployed advanced Meta Ad systems to drive consistent e-commerce growth.</p>
             </div>
-            <a href="APNA_LINK_YAHAN_DALEIN" class="link-btn">View Website ↗</a>
-        </div>
 
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Aura's+Collection&background=0A1120&color=00CED1&bold=true" alt="Aura's Collection" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>Aura's Collection</h3>
-                        <span class="project-category">Performance Marketing</span>
-                    </div>
-                </div>
-                <p>Executed high-yield social media campaigns and strategic creative designs to directly boost brand engagement and sales volume.</p>
+            <div class="slide">
+                <h3>Al Rehman Interiors</h3>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">Digital Authority</p>
+                <p>Structured the complete digital identity and managed branding strategies to establish dominance in the interior design sector.</p>
             </div>
-            <a href="APNA_LINK_YAHAN_DALEIN" class="link-btn">View Case Study ↗</a>
-        </div>
 
-        <div class="project-card">
-            <div>
-                <div class="brand-header">
-                    <img src="https://ui-avatars.com/api/?name=Mingle+Munch&background=0A1120&color=00CED1&bold=true" alt="The Mingle Munch" class="brand-logo">
-                    <div class="brand-info">
-                        <h3>The Mingle Munch</h3>
-                        <span class="project-category">Brand Development</span>
-                    </div>
-                </div>
-                <p>Engineered brand identity from zero, including full-scale content strategy, page creation, and promotional architectures.</p>
+            <div class="slide">
+                <h3>Estimation Experts</h3>
+                <p style="color: var(--accent); font-weight: 600; margin-bottom: 10px;">Frontend UI</p>
+                <p>Developed a high-end business website focusing on clean structure, systemic integrity, and conversion optimization.</p>
             </div>
-            <a href="APNA_LINK_YAHAN_DALEIN" class="link-btn">View Social Feed ↗</a>
+
+            <div class="slide-controls">
+                <button class="prev" onclick="changeSlide(-1)">❮</button>
+                <button class="next" onclick="changeSlide(1)">❯</button>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <footer>
+        <p>Engineered by Adeel Haider | Founder @ AdBis Marketing Hub</p>
+    </footer>
 
-    <div class="glass-card" style="margin-top: 50px;">
-        <img src="https://github.com/user-attachments/assets/ccdadba2-55da-4d4a-a935-83cb9b34d230" alt="AdBis Logo" style="width: 70px; border-radius: 50%; margin-bottom: 15px; border: 1px solid #00CED1;">
-        <h2 style="color: #ffffff; margin-bottom: 15px;">AdBis Marketing Hub</h2>
-        <p style="color: #8892B0; margin-bottom: 25px;">Ready to scale? Let's discuss how we can engineer your next phase of digital growth.</p>
-        <a href="APNA_ADBIS_LINK_YAHAN_DALEIN" class="link-btn" style="padding: 15px 30px; font-size: 1rem;">Initiate Contact ↗</a>
-    </div>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-</div>
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
 
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+
+        // Auto-play the slideshow every 5 seconds
+        setInterval(function() {
+            changeSlide(1);
+        }, 5000);
+    </script>
 </body>
 </html>
