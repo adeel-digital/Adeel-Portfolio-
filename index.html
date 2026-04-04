@@ -12,9 +12,9 @@
     <meta property="og:type" content="website">
 
     <style>
-        /* =========================================
-           CORE BRANDING & ARCHITECTURE VARIABLES
-           ========================================= */
+        /* =========================================================================
+           CORE BRANDING VARIABLES & COLOR PALETTE
+           ========================================================================= */
         :root {
             --bg-deep: #0D1117; 
             --bg-card: rgba(22, 27, 34, 0.75); 
@@ -23,14 +23,16 @@
             --text-muted: #8B949E; 
             --text-highlight: #C9D1D9;
             --accent: #00CED1; 
-            --accent-glow: rgba(0, 206, 209, 0.35);
+            --accent-glow: rgba(0, 206, 209, 0.45);
             --accent-dark: #008B8B;
+            --accent-deep: #005f5f;
             --border-light: rgba(0, 206, 209, 0.15);
+            --border-highlight: rgba(0, 206, 209, 0.4);
         }
         
-        /* =========================================
-           GLOBAL RESET & TYPOGRAPHY
-           ========================================= */
+        /* =========================================================================
+           GLOBAL RESET & TYPOGRAPHY SETTINGS
+           ========================================================================= */
         * {
             margin: 0; 
             padding: 0; 
@@ -47,18 +49,18 @@
             margin: 0; 
         }
 
-        /* =========================================
-           3D SPACE ENGINE & AMBIENT GLOW
-           ========================================= */
+        /* =========================================================================
+           3D SPACE ENGINE (PARTICLES.JS) & AMBIENT GLOW
+           ========================================================================= */
         #particles-js {
             position: fixed;
             width: 100vw;
-            height: 120vh; /* Extra height for parallax */
+            height: 120vh; 
             top: -10vh;
             left: 0;
             z-index: -2; 
-            opacity: 0.7;
-            pointer-events: none; /* Let clicks pass through */
+            opacity: 0.85; /* Increased visibility for the entire screen */
+            pointer-events: none; 
         }
 
         .ambient-glow {
@@ -66,16 +68,16 @@
             top: -150px; 
             left: 50%; 
             transform: translateX(-50%);
-            width: 900px; 
-            height: 900px;
-            background: radial-gradient(circle at center, rgba(0, 206, 209, 0.1) 0%, rgba(13, 17, 23, 0) 70%);
+            width: 1000px; 
+            height: 1000px;
+            background: radial-gradient(circle at center, rgba(0, 206, 209, 0.12) 0%, rgba(13, 17, 23, 0) 70%);
             z-index: -1; 
             pointer-events: none;
         }
 
-        /* =========================================
-           NAVIGATION BAR ARCHITECTURE
-           ========================================= */
+        /* =========================================================================
+           NAVIGATION BAR ARCHITECTURE (FROSTED GLASS EFFECT)
+           ========================================================================= */
         nav {
             position: fixed; 
             top: 0; 
@@ -87,7 +89,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            z-index: 10000; /* Extremely high z-index */
+            z-index: 10000; 
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -124,9 +126,9 @@
             color: var(--accent); 
         }
 
-        /* =========================================
-           GENERAL SECTION FORMATTING
-           ========================================= */
+        /* =========================================================================
+           GENERAL SECTION & LAYOUT FORMATTING
+           ========================================================================= */
         section { 
             padding: 140px 4% 60px 4%; 
             max-width: 1150px; 
@@ -155,9 +157,9 @@
             line-height: 1.8;
         }
 
-        /* =========================================
-           HERO SECTION (THE HOOK)
-           ========================================= */
+        /* =========================================================================
+           HERO SECTION (THE AUTHORITY HOOK)
+           ========================================================================= */
         #hero { 
             text-align: center; 
             padding-top: 180px; 
@@ -173,14 +175,14 @@
             border-radius: 50%; 
             object-fit: cover;
             border: 3px solid var(--accent); 
-            animation: pulseGlow 2s infinite alternate;
+            animation: pulseGlow 1.5s infinite alternate; /* Fast speed */
             margin-bottom: 25px; 
             background: #fff;
-            box-shadow: 0 0 30px var(--accent-glow);
             position: relative;
             z-index: 5;
         }
 
+        /* FAST & AGGRESSIVE AD-BIS LOGO GLOW */
         .adbis-badge {
             width: 140px; 
             height: 140px; 
@@ -188,21 +190,20 @@
             object-fit: cover;
             border: 2px solid var(--accent); 
             background: #fff;
-            animation: badgeGlow 1.5s infinite alternate ease-in-out; 
+            animation: badgeGlow 1s infinite alternate ease-in-out; /* Ultra Fast Speed */
             margin-bottom: 40px;
             position: relative;
             z-index: 5;
         }
 
-        /* Intense Glow Restored */
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(0, 206, 209, 0.3); transform: translateY(0); }
-            100% { box-shadow: 0 0 45px rgba(0, 206, 209, 0.8); transform: translateY(-5px); }
+            0% { box-shadow: 0 0 15px rgba(0, 206, 209, 0.4); transform: translateY(0); }
+            100% { box-shadow: 0 0 45px rgba(0, 206, 209, 0.9); transform: translateY(-5px); }
         }
 
         @keyframes badgeGlow {
-            0% { box-shadow: 0 0 15px rgba(0, 206, 209, 0.3); transform: scale(1); }
-            100% { box-shadow: 0 0 40px rgba(0, 206, 209, 0.7); transform: scale(1.05); }
+            0% { box-shadow: 0 0 20px rgba(0, 206, 209, 0.5); transform: scale(1); }
+            100% { box-shadow: 0 0 50px rgba(0, 206, 209, 1); transform: scale(1.05); }
         }
 
         h1 { 
@@ -230,9 +231,9 @@
             line-height: 1.9;
         }
 
-        /* =========================================
-           3D EMBOSSED BUTTONS
-           ========================================= */
+        /* =========================================================================
+           REAL 3D EMBOSSED BUTTONS (HERO SECTION)
+           ========================================================================= */
         .hero-buttons { 
             display: flex; 
             gap: 25px; 
@@ -246,41 +247,41 @@
             display: inline-flex; 
             justify-content: center; 
             align-items: center;
-            background: linear-gradient(145deg, rgba(0, 206, 209, 0.15), rgba(0, 206, 209, 0.02));
+            background: linear-gradient(180deg, #1A2634 0%, #0F172A 100%);
             color: var(--accent);
             border: 1px solid var(--accent); 
-            border-bottom: 4px solid var(--accent-dark); /* The 3D Base */
-            padding: 16px 35px;
-            text-decoration: none; 
+            border-bottom: 6px solid var(--accent-dark); /* Massive 3D Depth */
             border-radius: 8px; 
+            padding: 16px 40px;
+            text-decoration: none; 
             font-weight: 800;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            cursor: pointer; 
-            font-size: 1rem; 
+            font-size: 1.05rem; 
             text-transform: uppercase;
             letter-spacing: 1px;
-            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s ease; /* Fast snap for realistic press */
+            cursor: pointer; 
         }
         
         .btn-3d:hover { 
-            background: var(--accent); 
-            color: var(--bg-deep); 
+            background: linear-gradient(180deg, #1E2E40 0%, #162032 100%);
+            color: #fff; 
             box-shadow: 0 15px 30px var(--accent-glow); 
-            transform: translateY(-4px); 
-            border-bottom: 4px solid #004d4d;
+            transform: translateY(-2px); 
+            border-bottom: 6px solid var(--accent);
         }
 
         .btn-3d:active { 
-            transform: translateY(2px); 
-            border-bottom: 1px solid #004d4d; /* Button Press Illusion */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-            background: var(--accent-dark);
+            transform: translateY(4px); /* Pushes the button down */
+            border-bottom: 2px solid var(--accent-deep); /* Flattens the bottom edge */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); 
+            background: var(--accent-deep);
+            color: #fff;
         }
 
-        /* =========================================
-           ZOOM-IN CARDS ARCHITECTURE
-           ========================================= */
+        /* =========================================================================
+           ZOOM-IN CARDS ARCHITECTURE (CLEAN ALIGNMENT, NO TILT)
+           ========================================================================= */
         .grid-container { 
             display: grid; 
             gap: 30px; 
@@ -293,10 +294,10 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px; 
             padding: 40px;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, opacity 0.6s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, opacity 0.6s ease;
             position: relative;
             opacity: 0; 
-            transform: translateY(60px) scale(0.95); /* Perfect vertical drop */
+            transform: translateY(40px) scale(0.98); 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
@@ -306,56 +307,89 @@
         
         .zoom-card.active { 
             opacity: 1; 
-            transform: translateY(0) scale(1); /* Snaps to perfect grid alignment */
+            transform: translateY(0) scale(1); /* Perfectly straight settling */
         }
 
         .zoom-card:hover {
-            border-color: rgba(0, 206, 209, 0.5);
+            border-color: var(--border-highlight);
             background: var(--bg-card-hover);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 206, 209, 0.15);
-            transform: translateY(-10px) scale(1.02); /* Clean zoom without tilt */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-glow);
+            transform: translateY(-12px) scale(1.03); /* Pure, straight Zoom-In */
             z-index: 10;
         }
 
         /* Typography inside Cards */
-        .zoom-card h3 { color: #fff; font-size: 1.5rem; margin-bottom: 10px; font-weight: 800; letter-spacing: -0.5px;}
-        .zoom-card h4 { color: var(--accent); font-size: 1.1rem; margin-bottom: 20px; font-weight: 600;}
-        .zoom-card p { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.7;}
-        .zoom-card ul { margin-left: 25px; color: var(--text-highlight); font-size: 1rem; line-height: 1.8;}
-        .zoom-card li { margin-bottom: 12px; }
+        .zoom-card h3 { 
+            color: #fff; 
+            font-size: 1.5rem; 
+            margin-bottom: 10px; 
+            font-weight: 800; 
+            letter-spacing: -0.5px;
+        }
+        
+        .zoom-card h4 { 
+            color: var(--accent); 
+            font-size: 1.1rem; 
+            margin-bottom: 20px; 
+            font-weight: 600;
+        }
+        
+        .zoom-card p { 
+            color: var(--text-muted); 
+            margin-bottom: 20px; 
+            font-size: 1.05rem; 
+            line-height: 1.7;
+        }
+        
+        .zoom-card ul { 
+            margin-left: 25px; 
+            color: var(--text-highlight); 
+            font-size: 1rem; 
+            line-height: 1.8;
+        }
+        
+        .zoom-card li { 
+            margin-bottom: 12px; 
+        }
 
-        /* =========================================
-           FEATURED HIGHLIGHT (IGDA SEPARATE)
-           ========================================= */
+        /* =========================================================================
+           FEATURED HIGHLIGHT (IGDA - MASSIVE STANDALONE SECTION)
+           ========================================================================= */
         .featured-card {
             background: linear-gradient(135deg, rgba(0, 206, 209, 0.08), rgba(22, 27, 34, 0.95));
-            border: 2px solid var(--border-light);
-            border-left: 4px solid var(--accent); /* Highlight Edge */
-            box-shadow: 0 0 25px rgba(0, 206, 209, 0.1);
-            grid-column: 1 / -1; /* Spans full width */
+            border: 2px solid var(--border-highlight);
+            border-left: 6px solid var(--accent); /* Thick Highlight Edge */
+            box-shadow: 0 10px 30px rgba(0, 206, 209, 0.15);
+            grid-column: 1 / -1; /* Spans full width of the grid */
+            padding: 50px;
         }
 
         .featured-card:hover {
             border: 2px solid var(--accent);
-            border-left: 4px solid var(--accent);
+            border-left: 6px solid var(--accent);
+            transform: translateY(-10px) scale(1.02);
         }
 
-        /* =========================================
+        /* =========================================================================
            PROCESS ENGINE DETAILING
-           ========================================= */
+           ========================================================================= */
         .process-step { 
             color: var(--accent); 
-            font-size: 0.9rem; 
+            font-size: 0.95rem; 
             text-transform: uppercase; 
             font-weight: 800; 
             letter-spacing: 2px; 
-            margin-bottom: 10px; 
-            display: block;
+            margin-bottom: 12px; 
+            display: inline-block;
+            background: rgba(0, 206, 209, 0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid var(--border-light);
         }
 
-        /* =========================================
-           PORTFOLIO SPECIFICS
-           ========================================= */
+        /* =========================================================================
+           PORTFOLIO SPECIFICS (BRAND HEADERS)
+           ========================================================================= */
         .brand-header { 
             display: flex; 
             align-items: center; 
@@ -396,9 +430,32 @@
             line-height: 1.8;
         }
 
-        /* =========================================
-           TECH STACK BADGES
-           ========================================= */
+        /* Standardized Flat Buttons for Cards */
+        .btn-outline {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid var(--border-highlight);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg-deep);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* =========================================================================
+           TECH STACK BADGES (SOFTWARE ENGINEERING FLEX)
+           ========================================================================= */
         .stack-container { 
             display: flex; 
             flex-wrap: wrap; 
@@ -417,9 +474,9 @@
             letter-spacing: 0.5px;
         }
 
-        /* =========================================
-           WHATSAPP FLOAT (Z-INDEX FIX: ALWAYS ON TOP)
-           ========================================= */
+        /* =========================================================================
+           CONSTANT WHATSAPP ENGINE (ALWAYS ON TOP)
+           ========================================================================= */
         .wa-float {
             position: fixed; 
             bottom: 35px; 
@@ -435,7 +492,7 @@
             font-weight: 800; 
             font-size: 1.1rem;
             box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); 
-            z-index: 99999; /* Absolute highest priority */
+            z-index: 99999; /* HIGHEST PRIORITY OVER EVERYTHING */
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
@@ -451,9 +508,9 @@
             fill: white; 
         }
 
-        /* =========================================
-           FOOTER CTA
-           ========================================= */
+        /* =========================================================================
+           FOOTER CTA (THE CLOSER)
+           ========================================================================= */
         .footer-cta { 
             text-align: center; 
             padding: 100px 20px; 
@@ -464,19 +521,20 @@
             z-index: 1; 
         }
 
-        /* =========================================
+        /* =========================================================================
            MOBILE RESPONSIVENESS ARCHITECTURE
-           ========================================= */
+           ========================================================================= */
         @media (max-width: 768px) {
             nav { padding: 15px; flex-direction: column; gap: 15px; }
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center;}
-            #hero { padding-top: 170px; padding-bottom: 60px;}
+            #hero { padding-top: 190px; padding-bottom: 60px;}
             h1 { font-size: 2.8rem; }
             .hero-pitch { font-size: 1.1rem; padding: 0 15px;}
             .hero-buttons { flex-direction: column; width: 100%; max-width: 350px; }
             .btn-3d { width: 100%; text-align: center; }
             .wa-float { bottom: 20px; right: 20px; padding: 15px 22px; font-size: 1rem; }
             .zoom-card { padding: 30px; }
+            .featured-card { padding: 30px; }
         }
     </style>
 </head>
@@ -553,11 +611,11 @@
         <div class="grid-container">
             
             <div class="zoom-card featured-card">
-                <span class="process-step" style="color: #fff;">Featured Highlight</span>
-                <h3>Global Game Jam 2025</h3>
-                <h4>Creative Lead & Brand Architect | IGDA @ CUST</h4>
-                <p>
-                    Spearheaded the official creative direction and digital branding strategy for one of the largest global game development events hosted at Capital University of Science and Technology. Engineered visual assets and managed the digital narrative to maximize event reach and participant engagement on a global scale.
+                <span class="process-step" style="color: #fff; background: var(--accent); border: none;">Featured Event Highlight</span>
+                <h3 style="font-size: 2rem; margin-top: 15px;">Global Game Jam 2025</h3>
+                <h4 style="font-size: 1.2rem;">Creative Lead & Brand Architect | IGDA @ CUST</h4>
+                <p style="font-size: 1.15rem;">
+                    Spearheaded the official creative direction and digital branding strategy for one of the largest global game development events hosted at Capital University of Science and Technology. Engineered visual assets and managed the digital narrative to maximize event reach and participant engagement on a global scale. This required bridging technical game development communities with engaging aesthetic marketing.
                 </p>
             </div>
 
@@ -622,7 +680,7 @@
                         Engineered high-ROAS Meta Ads targeting specific buyer personas. Managed end-to-end digital presence to drive consistent, scalable e-commerce revenue.
                     </p>
                 </div>
-                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-3d" style="width: 100%;">View Social Profile</a>
+                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-outline">View Social Profile</a>
             </div>
 
             <div class="zoom-card">
@@ -638,7 +696,7 @@
                         Structured digital identity from the ground up. Dominated the premium interior design niche through targeted content and aesthetic brand positioning.
                     </p>
                 </div>
-                <a href="https://www.facebook.com/Alrahmaninterior/" target="_blank" class="btn-3d" style="width: 100%;">View Identity</a>
+                <a href="https://www.facebook.com/Alrahmaninterior/" target="_blank" class="btn-outline">View Identity</a>
             </div>
 
             <div class="zoom-card">
@@ -654,7 +712,7 @@
                         Executed viral social media campaigns and creative, pattern-interrupting strategies that directly boosted brand engagement and sales volume.
                     </p>
                 </div>
-                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-3d" style="width: 100%;">View Social Profile</a>
+                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-outline">View Social Profile</a>
             </div>
 
             <div class="zoom-card">
@@ -670,7 +728,7 @@
                         Brought the brand from concept to digital reality. Developed the foundational content strategy and ran high-impact local promotional campaigns.
                     </p>
                 </div>
-                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-3d" style="width: 100%;">View Identity</a>
+                <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-outline">View Identity</a>
             </div>
 
             <div class="zoom-card">
@@ -686,7 +744,7 @@
                         Engineered a scalable social media presence to capture local market share and generate a consistent stream of inbound business inquiries.
                     </p>
                 </div>
-                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-3d" style="width: 100%;">View Social Profile</a>
+                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-outline">View Social Profile</a>
             </div>
 
         </div>
@@ -698,13 +756,13 @@
     </a>
 
     <div class="footer-cta">
-        <h2 style="color: #fff; margin-bottom: 20px; font-size: 2.5rem; letter-spacing: -1px;">
+        <h2 style="color: #fff; margin-bottom: 20px; font-size: 2.6rem; letter-spacing: -1px;">
             Ready to Scale Your Revenue?
         </h2>
-        <p style="color: var(--text-highlight); margin-bottom: 40px; font-size: 1.15rem; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+        <p style="color: var(--text-highlight); margin-bottom: 45px; font-size: 1.15rem; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.8;">
             Stop wasting budget on 'likes' and start optimizing for 'sales'. Let's discuss how we can engineer an automated inbound ecosystem for your brand today.
         </p>
-        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-3d" style="padding: 18px 45px; font-size: 1.15rem;">
+        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-3d" style="padding: 18px 50px; font-size: 1.2rem;">
             Initiate Strategic Audit
         </a>
     </div>
@@ -712,35 +770,34 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-        // 1. Clean, Professional Tech Particles Initialization
-        // Detect_on set to "window" so it interacts with mouse globally
+        // 1. PARTICLES.JS ENGINE (FULL SCREEN DETECTION FIX)
         particlesJS("particles-js", {
             "particles": {
                 "number": { 
-                    "value": 40, 
+                    "value": 50, 
                     "density": { "enable": true, "value_area": 1000 } 
                 },
                 "color": { "value": "#00CED1" }, 
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.35, "random": false },
+                "opacity": { "value": 0.4, "random": false },
                 "size": { "value": 2.5, "random": true },
                 "line_linked": { 
                     "enable": true, 
-                    "distance": 130, 
+                    "distance": 140, 
                     "color": "#00CED1", 
-                    "opacity": 0.15, 
-                    "width": 1 
+                    "opacity": 0.2, 
+                    "width": 1.2 
                 }, 
                 "move": { 
                     "enable": true, 
-                    "speed": 1.0, 
+                    "speed": 1.2, 
                     "direction": "none", 
                     "random": true, 
                     "out_mode": "out" 
                 } 
             },
             "interactivity": {
-                "detect_on": "window", // FIX: Works globally, even over text and cards
+                "detect_on": "window", // <--- THIS ENSURES IT WORKS EVERYWHERE, EVEN OVER TEXT
                 "events": {
                     "onhover": { "enable": true, "mode": "grab" },
                     "onclick": { "enable": true, "mode": "push" },
@@ -748,8 +805,8 @@
                 },
                 "modes": {
                     "grab": { 
-                        "distance": 160, 
-                        "line_linked": { "opacity": 0.3 } 
+                        "distance": 220, 
+                        "line_linked": { "opacity": 0.6 } 
                     },
                     "push": { "particles_nb": 3 }
                 }
@@ -757,17 +814,15 @@
             "retina_detect": true
         });
 
-        // 2. Background Parallax Engine (Scroll Fix)
-        // This ensures the background feels dynamic and not "stuck"
+        // 2. BACKGROUND PARALLAX SCROLL LOGIC
         window.addEventListener('scroll', function() {
             let scrollPosition = window.pageYOffset;
             let particlesContainer = document.getElementById('particles-js');
-            // Move the background slowly down as user scrolls
-            particlesContainer.style.transform = 'translateY(' + scrollPosition * 0.3 + 'px)';
+            // Creates a deep 3D illusion moving the background differently from foreground
+            particlesContainer.style.transform = 'translateY(' + scrollPosition * 0.2 + 'px)';
         });
 
-        // 3. Clean Zoom-In Reveal Engine
-        // No crooked tilting, just pure vertical zoom snapping
+        // 3. CLEAN ZOOM-IN REVEAL ENGINE
         const cards = document.querySelectorAll('.zoom-card');
         
         function handleReveal() {
@@ -781,7 +836,6 @@
             });
         }
         
-        // Listeners for reveal
         window.addEventListener('scroll', handleReveal, { passive: true });
         window.addEventListener('load', handleReveal);
     </script>
