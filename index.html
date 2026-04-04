@@ -8,383 +8,564 @@
     <meta property="og:title" content="Adeel Haider | Digital Growth Marketer & Brand Architect">
     <meta property="og:description" content="Transforming digital presence into measurable revenue. Scaling brands through high-ticket Meta Ads & automated marketing ecosystems.">
     <meta property="og:image" content="https://github.com/adeel-digital.png">
-    <meta property="og:url" content="https://adeel-digital.github.io/Portfolio/?v=1">
+    <meta property="og:url" content="https://adeel-digital.github.io/Portfolio/?v=4">
     <meta property="og:type" content="website">
 
     <style>
-        /* Core Brand Variables */
+        /* =========================================
+           CORE BRANDING & ARCHITECTURE VARIABLES
+           ========================================= */
         :root {
             --bg-deep: #0D1117; 
-            --bg-card: #161B22; 
+            --bg-card: rgba(22, 27, 34, 0.85); 
+            --bg-card-hover: rgba(30, 38, 48, 0.95);
             --text-main: #F0F6FC; 
             --text-muted: #8B949E; 
+            --text-highlight: #C9D1D9;
             --accent: #00CED1; 
             --accent-glow: rgba(0, 206, 209, 0.4);
+            --accent-strong: rgba(0, 206, 209, 0.8);
+            --border-light: rgba(0, 206, 209, 0.15);
         }
         
+        /* =========================================
+           GLOBAL RESET & TYPOGRAPHY
+           ========================================= */
         * {
-            margin: 0;
-            padding: 0;
+            margin: 0; 
+            padding: 0; 
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
             scroll-behavior: smooth;
         }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            margin: 0;
+        body { 
+            background-color: var(--bg-deep); 
+            color: var(--text-main); 
+            line-height: 1.7; 
+            overflow-x: hidden; 
+            margin: 0; 
+            perspective: 1200px; 
         }
 
-        /* Ambient Background Glow */
-        .ambient-glow {
+        /* =========================================
+           3D SPACE ENGINE & AMBIENT GLOW
+           ========================================= */
+        #particles-js {
             position: fixed;
-            top: -100px;
-            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -2; 
+        }
+
+        .ambient-glow {
+            position: fixed; 
+            top: -150px; 
+            left: 50%; 
             transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(0, 206, 209, 0.1) 0%, rgba(13, 17, 23, 0) 70%);
-            z-index: -1;
+            width: 800px; 
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 206, 209, 0.12) 0%, rgba(13, 17, 23, 0) 60%);
+            z-index: -1; 
             pointer-events: none;
         }
 
-        /* Navigation Architecture */
+        /* =========================================
+           NAVIGATION BAR ARCHITECTURE
+           ========================================= */
         nav {
-            position: fixed;
-            top: 0;
+            position: fixed; 
+            top: 0; 
             width: 100%;
-            background: rgba(13, 17, 23, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
+            background: rgba(13, 17, 23, 0.85); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 18px 50px; 
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 206, 209, 0.15);
+            z-index: 1000; 
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .nav-brand {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .nav-brand { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            letter-spacing: -0.5px;
         }
         
         .nav-brand span { color: var(--accent); }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
+        
+        .nav-links { display: flex; gap: 30px; }
+        
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            font-size: 0.95rem; 
+            letter-spacing: 0.5px;
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
+        
         .nav-links a:hover { color: var(--accent); }
 
-        /* General Section Formatting */
-        section {
-            padding: 100px 4% 40px 4%;
-            max-width: 1100px;
-            margin: auto;
+        /* =========================================
+           GENERAL SECTION FORMATTING
+           ========================================= */
+        section { 
+            padding: 120px 4% 50px 4%; 
+            max-width: 1150px; 
+            margin: auto; 
+            position: relative; 
+            z-index: 1; 
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 35px;
+            font-size: 2.2rem; 
+            margin-bottom: 50px; 
             color: var(--text-main);
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 5px;
+            border-bottom: 3px solid var(--accent); 
+            display: inline-block; 
+            padding-bottom: 8px;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        /* Mobile Animation Fix: Reveal on Scroll */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: -35px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
 
-        /* Hero Section */
-        #hero {
-            text-align: center;
-            padding-top: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* =========================================
+           HERO SECTION (THE HOOK)
+           ========================================= */
+        #hero { 
+            text-align: center; 
+            padding-top: 180px; 
+            padding-bottom: 100px;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
         }
 
         .glow-avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
+            width: 170px; 
+            height: 170px; 
+            border-radius: 50%; 
             object-fit: cover;
-            border: 3px solid var(--accent);
-            animation: pulseGlow 1.5s infinite alternate;
-            margin-bottom: 18px;
+            border: 3px solid var(--accent); 
+            animation: pulseGlow 2s infinite alternate;
+            margin-bottom: 25px; 
             background: #fff;
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
         .adbis-badge {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+            width: 130px; 
+            height: 130px; 
+            border-radius: 50%; 
             object-fit: cover;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--accent); 
             background: #fff;
-            animation: floatGlow 1.2s infinite alternate;
-            margin-bottom: 25px;
-            box-shadow: 0 0 20px var(--accent-glow);
+            animation: floatGlow 3s infinite alternate ease-in-out; 
+            margin-bottom: 35px;
+            box-shadow: 0 0 25px var(--accent-glow);
         }
 
         @keyframes pulseGlow {
-            0% { box-shadow: 0 0 8px var(--accent-glow); transform: translateY(0); }
-            100% { box-shadow: 0 0 25px rgba(0, 206, 209, 0.7); transform: translateY(-4px); }
+            0% { box-shadow: 0 0 15px var(--accent-glow); transform: translateY(0); }
+            100% { box-shadow: 0 0 40px var(--accent-strong); transform: translateY(-5px); }
         }
 
         @keyframes floatGlow {
-            0% { box-shadow: 0 0 12px var(--accent-glow); transform: translateY(0); }
-            100% { box-shadow: 0 0 35px rgba(0, 206, 209, 0.85); transform: translateY(-8px); }
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-12px) scale(1.02); }
         }
 
-        h1 { font-size: 3.2rem; letter-spacing: -1px; margin-bottom: 4px; color: #fff; }
-        h2 { font-size: 1.15rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 22px; }
+        h1 { 
+            font-size: 4rem; 
+            letter-spacing: -1.5px; 
+            margin-bottom: 8px; 
+            color: #fff; 
+            font-weight: 900;
+        }
         
-        .hero-pitch {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 720px;
-            margin-bottom: 30px;
-        }
-
-        /* Button Architecture */
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 206, 209, 0.12);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 8px;
+        h2 { 
+            font-size: 1.25rem; 
+            color: var(--accent); 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            margin-bottom: 30px; 
             font-weight: 600;
-            transition: all 0.25s ease;
-            cursor: pointer;
-            font-size: 0.95rem;
+        }
+        
+        .hero-pitch { 
+            color: var(--text-highlight); 
+            font-size: 1.2rem; 
+            max-width: 800px; 
+            margin-bottom: 45px; 
+            line-height: 1.8;
         }
 
-        .btn-primary:hover {
-            background: var(--accent);
-            color: var(--bg-deep);
-            box-shadow: 0 0 18px var(--accent-glow);
-            transform: translateY(-2px);
+        /* Buttons */
+        .hero-buttons { 
+            display: flex; 
+            gap: 20px; 
+            justify-content: center; 
+            width: 100%; 
         }
-
-        /* CV Grid */
-        .cv-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        @media(min-width: 768px) { .cv-grid { grid-template-columns: 1fr 1fr; } }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.25s, border 0.25s;
-        }
-        .card:hover, .card:active {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .card h3 { color: #fff; font-size: 1.35rem; margin-bottom: 5px; }
-        .card h4 { color: var(--accent); font-size: 1rem; margin-bottom: 15px; }
-        .card ul { margin-left: 20px; color: var(--text-muted); font-size: 0.95rem;}
-        .card li { margin-bottom: 8px; }
-
-        /* Brand Grid */
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .brand-card {
-            background: rgba(22, 27, 34, 0.8);
-            border: 1px solid rgba(0, 206, 209, 0.12);
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .brand-card:hover, .brand-card:active {
-            border-color: var(--accent);
-            background: rgba(22, 27, 34, 1);
-            box-shadow: 0 8px 25px var(--accent-glow);
-            transform: translateY(-5px);
-        }
-
-        .brand-header {
-            display: flex;
+        
+        .btn-primary {
+            display: inline-flex; 
+            justify-content: center; 
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .brand-logo {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            border: 1px solid var(--accent);
-            background: #fff;
-            object-fit: cover;
-        }
-
-        .brand-info h3 { color: #fff; font-size: 1.2rem; margin-bottom: 2px; }
-        .brand-info span { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; }
-        .brand-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; margin-top: 10px; }
-
-        /* Footer CTA */
-        .footer-cta {
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--bg-card);
-            border-top: 1px solid rgba(0, 206, 209, 0.15);
-            margin-top: 50px;
-        }
-
-        /* Floating WhatsApp Button */
-        .wa-float {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: flex; align-items: center; gap: 10px;
+            background: rgba(0, 206, 209, 0.1); 
+            color: var(--accent);
+            border: 1px solid var(--accent); 
+            padding: 15px 35px;
+            text-decoration: none; 
+            border-radius: 8px; 
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 2000;
-            transition: 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            cursor: pointer; 
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
-        .wa-float:hover { transform: scale(1.08); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6); }
-        .wa-icon { width: 25px; height: 25px; fill: white; }
+        
+        .btn-primary:hover { 
+            background: var(--accent); 
+            color: var(--bg-deep); 
+            box-shadow: 0 0 25px var(--accent-glow); 
+            transform: translateY(-3px); 
+        }
 
-        /* 📱 MOBILE RESPONSIVENESS FIXES */
+        /* =========================================
+           3D TILT ENGINE & CARD ARCHITECTURE
+           ========================================= */
+        .grid-container { 
+            display: grid; 
+            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+        }
+
+        .tilt-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px; 
+            padding: 35px;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease, background 0.3s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            opacity: 0; 
+            transform: translateY(60px) rotateX(15deg);
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .tilt-card.active { 
+            opacity: 1; 
+        }
+        
+        .card-inner { 
+            transform: translateZ(50px); 
+            transition: transform 0.3s ease;
+        } 
+
+        .tilt-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            box-shadow: 0 15px 35px var(--accent-glow);
+        }
+
+        /* Typography within Cards */
+        .tilt-card h3 { color: #fff; font-size: 1.4rem; margin-bottom: 8px; font-weight: 700; }
+        .tilt-card h4 { color: var(--accent); font-size: 1.05rem; margin-bottom: 18px; font-weight: 600; }
+        .tilt-card p { color: var(--text-muted); margin-bottom: 15px; font-size: 1rem; line-height: 1.6; }
+        .tilt-card ul { margin-left: 22px; color: var(--text-highlight); font-size: 0.95rem; line-height: 1.7;}
+        .tilt-card li { margin-bottom: 10px; }
+
+        /* =========================================
+           PORTFOLIO SPECIFIC STYLES
+           ========================================= */
+        .brand-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 18px; 
+            margin-bottom: 20px; 
+        }
+        
+        .brand-logo { 
+            width: 65px; 
+            height: 65px; 
+            border-radius: 12px; 
+            border: 1px solid var(--accent); 
+            background: #fff; 
+            object-fit: cover; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .brand-info h3 { color: #fff; font-size: 1.3rem; margin-bottom: 2px; }
+        .brand-info span { 
+            color: var(--accent); 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 600;
+        }
+        
+        .brand-desc { 
+            color: var(--text-highlight); 
+            font-size: 1rem; 
+            margin-bottom: 25px; 
+            margin-top: 15px; 
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           TECH STACK BADGES (NEW SECTION)
+           ========================================= */
+        .stack-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stack-badge {
+            background: rgba(0, 206, 209, 0.08);
+            border: 1px solid rgba(0, 206, 209, 0.3);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transform: translateZ(30px);
+        }
+
+        /* =========================================
+           PROCESS ENGINE (NEW SECTION)
+           ========================================= */
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .process-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: rgba(0, 206, 209, 0.2);
+            line-height: 1;
+            -webkit-text-stroke: 1px var(--accent);
+        }
+
+        /* =========================================
+           FLOATING CONVERSION ENGINE (WHATSAPP)
+           ========================================= */
+        .wa-float {
+            position: fixed; 
+            bottom: 35px; 
+            right: 35px;
+            background: #25D366; 
+            color: white; 
+            padding: 16px 28px;
+            border-radius: 50px; 
+            text-decoration: none;
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            font-weight: 800;
+            font-size: 1.05rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); 
+            z-index: 2000; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .wa-float:hover { 
+            transform: scale(1.08) translateY(-5px); 
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6); 
+        }
+        
+        .wa-icon { width: 28px; height: 28px; fill: white; }
+
+        /* =========================================
+           FOOTER CTA
+           ========================================= */
+        .footer-cta { 
+            text-align: center; 
+            padding: 80px 20px; 
+            background: rgba(13, 17, 23, 0.9); 
+            border-top: 1px solid var(--border-light); 
+            margin-top: 60px; 
+            position: relative; 
+            z-index: 1; 
+            backdrop-filter: blur(15px); 
+        }
+
+        /* =========================================
+           MOBILE RESPONSIVENESS ARCHITECTURE
+           ========================================= */
         @media (max-width: 768px) {
-            nav { padding: 15px 20px; flex-direction: column; gap: 12px; }
-            .nav-brand { font-size: 1.2rem; } 
-            .nav-links { display: flex; gap: 20px; justify-content: center; }
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-brand { font-size: 1.3rem; } 
+            .nav-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
             .nav-links a { margin-left: 0; font-size: 0.95rem; }
             
-            #hero { padding-top: 140px; }
-            h1 { font-size: 2.3rem; }
-            h2 { font-size: 1rem; }
-            .hero-pitch { font-size: 1.05rem; padding: 0 10px; }
+            #hero { padding-top: 160px; padding-bottom: 60px; }
+            h1 { font-size: 2.6rem; }
+            h2 { font-size: 0.95rem; letter-spacing: 2px; }
+            .hero-pitch { font-size: 1.05rem; padding: 0 15px; }
             
-            .hero-buttons { flex-direction: column; width: 100%; max-width: 320px; margin: auto; }
-            .btn-primary { width: 100%; text-align: center; }
+            .hero-buttons { flex-direction: column; width: 100%; max-width: 350px; margin: auto; }
+            .btn-primary { width: 100%; text-align: center; padding: 14px 20px; }
             
-            .section-title { font-size: 1.8rem; }
-            .wa-float { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.9rem; }
+            .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+            .wa-float { bottom: 20px; right: 20px; padding: 14px 22px; font-size: 0.95rem; }
+            
+            .tilt-card { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <div id="particles-js"></div>
     <div class="ambient-glow"></div>
 
     <nav>
         <a href="#hero" class="nav-brand">Ad-Bis<span>.</span> Marketing Hub</a>
         <div class="nav-links">
-            <a href="#resume">Expertise</a>
-            <a href="#portfolio">Client Portfolio</a>
+            <a href="#system">Growth System</a>
+            <a href="#expertise">Architecture</a>
+            <a href="#portfolio">Brand Portfolio</a>
         </div>
     </nav>
 
     <section id="hero">
         <img src="https://github.com/adeel-digital.png" alt="Adeel Haider" class="glow-avatar">
+        
         <h1>Adeel Haider</h1>
         <h2>Digital Growth Marketer & Brand Architect</h2>
         
         <p class="hero-pitch">
-            I transform digital presence into measurable revenue. Specializing in high-ticket Meta Ads, organic social media growth, and brand scaling. I build automated marketing engines that capture attention and convert it into loyal customers.
+            I don't just run ads; I engineer digital ecosystems. Specializing in high-ticket Meta Ads, organic social media domination, and scalable brand architecture. Bridging the gap between software logic and marketing psychology to transform attention into measurable revenue.
         </p>
 
         <img src="https://github.com/user-attachments/assets/ccdadba2-55da-4d4a-a935-83cb9b34d230" alt="Ad-Bis Marketing Hub Logo" class="adbis-badge">
 
         <div class="hero-buttons">
-            <a href="https://www.linkedin.com/in/adeel-haider-0b89a8305" target="_blank" class="btn-primary">✦ Connect on LinkedIn</a>
-            <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary">✦ Ad-Bis Marketing Hub</a>
+            <a href="https://www.linkedin.com/in/adeel-haider-0b89a8305" target="_blank" class="btn-primary">✦ View LinkedIn Profile</a>
+            <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary">✦ Explore Ad-Bis Hub</a>
         </div>
     </section>
 
-    <section id="resume">
-        <h2 class="section-title reveal">Professional Architecture</h2>
+    <section id="system">
+        <h2 class="section-title">The Ad-Bis Operating System</h2>
+        <p class="section-subtitle">How I leverage data structures and marketing psychology to scale businesses predictably.</p>
         
-        <div class="cv-grid">
-            <div class="card reveal">
-                <h3>Founder & Marketing Specialist</h3>
-                <h4>Ad-Bis Marketing Hub | Present</h4>
-                <ul>
-                    <li>Scaling e-commerce and local businesses through targeted Meta Ads and data-driven marketing funnels.</li>
-                    <li>Designing and executing comprehensive Social Media Marketing (SMM) strategies for maximum ROI.</li>
-                    <li>Architected official creative branding for <b>Global Game Jam 2025</b> (IGDA @ CUST).</li>
-                </ul>
+        <div class="grid-container">
+            <div class="tilt-card">
+                <div class="card-inner">
+                    <h3>1. Data-Driven Audit</h3>
+                    <h4>The Analytical Phase</h4>
+                    <p>Before spending a single rupee, I dissect your current digital footprint. Using my Software Engineering background, I analyze bounce rates, audience demographics, and competitor algorithms to find the exact loopholes in your current funnel.</p>
+                </div>
             </div>
 
-            <div class="card reveal">
-                <h3>Digital Marketing Intern</h3>
-                <h4>RAN Digital Agency | Duration: 6 Months</h4>
-                <ul>
-                    <li>Spearheaded end-to-end social media marketing campaigns, focusing on audience engagement and brand awareness.</li>
-                    <li>Developed high-converting ad creatives and maintained strong client relationships.</li>
-                    <li>Analyzed campaign metrics to optimize performance, significantly lowering Cost Per Acquisition (CPA).</li>
-                </ul>
+            <div class="tilt-card">
+                <div class="card-inner">
+                    <h3>2. Ecosystem Architecture</h3>
+                    <h4>The Creative Phase</h4>
+                    <p>I don't make generic posts. I design a cohesive brand identity (Looksmaxxing for Brands). This includes high-retention video strategies, copywriting that triggers psychological buying behavior, and establishing unshakeable market authority.</p>
+                </div>
             </div>
 
-            <div class="card reveal" style="grid-column: 1 / -1;">
-                <h3>Certifications & The Analytical Edge</h3>
-                <h4>Bridging Tech with Marketing Psychology</h4>
-                <ul>
-                    <li><b>Certified Digital Marketer</b> - NSU H-8, Islamabad. Mastery in SMM, SEO, and Meta Business Suite.</li>
-                    <li><b>BS Software Engineering</b> - CUST (4th Semester). My technical background provides a deep analytical advantage in understanding algorithms, system efficiencies, and data structures.</li>
-                </ul>
+            <div class="tilt-card">
+                <div class="card-inner">
+                    <h3>3. High-Ticket Scaling</h3>
+                    <h4>The Execution Phase</h4>
+                    <p>Deploying targeted Meta Ad campaigns structured for maximum ROAS. I use automated A/B testing frameworks to scale winning creatives while cutting losing assets, ensuring your inbound lead flow becomes a predictable, scalable machine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <h2 class="section-title">Professional Architecture</h2>
+        
+        <div class="grid-container">
+            <div class="tilt-card">
+                <div class="card-inner">
+                    <h3>Founder & Strategic Lead</h3>
+                    <h4>Ad-Bis Marketing Hub | Present</h4>
+                    <ul>
+                        <li>Architecting comprehensive digital growth strategies for B2B and B2C global clients.</li>
+                        <li>Scaling e-commerce stores and local service businesses through targeted, high-ticket Meta Ads.</li>
+                        <li>Designing automated inbound lead funnels to convert cold traffic into loyal retaining clients.</li>
+                        <li>Led official creative branding and digital strategy for <b>Global Game Jam 2025</b> (IGDA @ CUST).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tilt-card">
+                <div class="card-inner">
+                    <h3>Digital Marketing Specialist</h3>
+                    <h4>RAN Digital Agency | Duration: 6 Months</h4>
+                    <ul>
+                        <li>Spearheaded end-to-end social media marketing campaigns, focusing on audience retention.</li>
+                        <li>Developed high-converting ad creatives, boosting engagement rates by over 40% across portfolios.</li>
+                        <li>Maintained strong client relationships through transparent reporting and KPI tracking.</li>
+                        <li>Analyzed campaign metrics (CTR, CPM) to optimize performance, significantly lowering Cost Per Acquisition (CPA).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tilt-card" style="grid-column: 1 / -1;">
+                <div class="card-inner">
+                    <h3>The Engineering Advantage</h3>
+                    <h4>Certifications & Technical Arsenal</h4>
+                    <p style="color: var(--text-highlight); margin-bottom: 15px;">
+                        My foundation is not just marketing; it's systemic logic. I hold a <b>Certified Digital Marketer</b> degree from NSU H-8, Islamabad.
+                        Currently in my <b>4th Semester of BS Software Engineering</b> at CUST. This unique blend allows me to approach marketing algorithms mathematically, finding system efficiencies that traditional marketers miss.
+                    </p>
+                    
+                    <h4 style="margin-top: 25px; margin-bottom: 10px; font-size: 0.9rem;">Core Stack & Tooling</h4>
+                    <div class="stack-container">
+                        <span class="stack-badge">Meta Business Suite</span>
+                        <span class="stack-badge">Advanced SMM</span>
+                        <span class="stack-badge">SEO Optimization</span>
+                        <span class="stack-badge">Python (Data Logic)</span>
+                        <span class="stack-badge">Web Architecture</span>
+                        <span class="stack-badge">Funnel Automation</span>
+                        <span class="stack-badge">Brand Psychology</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title reveal">Verified Brand Ecosystems</h2>
+        <h2 class="section-title">Verified Brand Ecosystems</h2>
+        <p class="section-subtitle">A curated selection of brands where I have successfully deployed my growth architecture.</p>
         
-        <div class="brand-grid">
+        <div class="grid-container">
             
-            <div class="brand-card reveal">
-                <div>
+            <div class="tilt-card">
+                <div class="card-inner">
                     <div class="brand-header">
                         <img src="https://ui-avatars.com/api/?name=Tulip+Attire&background=1E293B&color=00CED1&bold=true" alt="Tulip" class="brand-logo">
                         <div class="brand-info">
@@ -392,65 +573,75 @@
                             <span>E-Commerce Scaling</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Engineered high-ROAS Meta Ads and managed end-to-end digital presence to drive consistent e-commerce sales.</p>
+                    <p class="brand-desc">
+                        Took over full digital operations to scale their e-commerce sales. Engineered high-ROAS Meta Ads targeting specific buyer personas. Managed end-to-end digital presence, optimizing the funnel from initial ad click to final cart checkout, resulting in consistent, scalable revenue growth.
+                    </p>
                 </div>
-                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-primary" style="width: 100%;">View Campaign ↗</a>
+                <a href="https://www.instagram.com/tulipattire_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-primary" style="width: 100%;">View Live Campaign ↗</a>
             </div>
 
-            <div class="brand-card reveal">
-                <div>
+            <div class="tilt-card">
+                <div class="card-inner">
                     <div class="brand-header">
                         <img src="https://ui-avatars.com/api/?name=Al+Rehman&background=1E293B&color=00CED1&bold=true" alt="Al Rehman" class="brand-logo">
                         <div class="brand-info">
                             <h3>Al Rehman Interiors</h3>
-                            <span>Brand Authority</span>
+                            <span>Brand Authority Architecture</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Structured their digital identity from the ground up, dominating the premium interior design niche through targeted content.</p>
+                    <p class="brand-desc">
+                        As the marketing lead for this family-owned enterprise, I structured their digital identity from the ground up. Dominated the premium interior design niche in Islamabad through targeted, high-quality aesthetic content. Built a system that captures high-net-worth client inquiries directly from social platforms.
+                    </p>
                 </div>
                 <a href="https://www.facebook.com/Alrahmaninterior/" target="_blank" class="btn-primary" style="width: 100%;">View Digital Identity ↗</a>
             </div>
 
-            <div class="brand-card reveal">
-                <div>
+            <div class="tilt-card">
+                <div class="card-inner">
                     <div class="brand-header">
                         <img src="https://ui-avatars.com/api/?name=Aura's+Collection&background=1E293B&color=00CED1&bold=true" alt="Aura" class="brand-logo">
                         <div class="brand-info">
                             <h3>Aura's Collection</h3>
-                            <span>Performance Marketing</span>
+                            <span>Performance & Retention</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Executed viral social media campaigns and creative strategies to directly boost brand engagement and sales volume.</p>
+                    <p class="brand-desc">
+                        Executed highly engaging, viral social media campaigns designed to cut through market noise. Implemented creative, pattern-interrupting strategies that directly boosted brand engagement metrics and significantly increased overall sales volume within a tight 90-day window.
+                    </p>
                 </div>
-                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-primary" style="width: 100%;">View Case Study ↗</a>
+                <a href="https://www.facebook.com/profile.php?id=61572185236179&mibextid=wwXIfr&rdid=ftjzJ7X6ZwiKfWw4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F195oPJq3K4%2F%3Fmibextid%3DwwXIfr%26utm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio#" target="_blank" class="btn-primary" style="width: 100%;">Analyze Case Study ↗</a>
             </div>
 
-            <div class="brand-card reveal">
-                <div>
+            <div class="tilt-card">
+                <div class="card-inner">
                     <div class="brand-header">
                         <img src="https://ui-avatars.com/api/?name=Mingle+Munch&background=1E293B&color=00CED1&bold=true" alt="Mingle" class="brand-logo">
                         <div class="brand-info">
                             <h3>The Mingle Munch</h3>
-                            <span>Brand Strategy</span>
+                            <span>Foundational Strategy</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Developed foundational content strategy, handled page creation, and ran high-impact promotional campaigns.</p>
+                    <p class="brand-desc">
+                        Brought the brand from concept to digital reality. Developed the foundational content strategy and handled the complete page creation. Ran high-impact, geo-targeted promotional campaigns to generate initial traction and build a loyal local customer base from scratch.
+                    </p>
                 </div>
                 <a href="APNA_LINK_YAHAN_DALEIN" target="_blank" class="btn-primary" style="width: 100%;">View Social Profile ↗</a>
             </div>
 
-            <div class="brand-card reveal">
-                <div>
+            <div class="tilt-card">
+                <div class="card-inner">
                     <div class="brand-header">
                         <img src="https://ui-avatars.com/api/?name=Unique+Interior&background=1E293B&color=00CED1&bold=true" alt="Unique" class="brand-logo">
                         <div class="brand-info">
                             <h3>Unique Interior</h3>
-                            <span>Social Architecture</span>
+                            <span>Local Market Domination</span>
                         </div>
                     </div>
-                    <p class="brand-desc">Built a scalable social media presence to capture local market share and generate consistent inbound inquiries.</p>
+                    <p class="brand-desc">
+                        Engineered a scalable social media presence designed specifically to capture local market share. Optimized their digital storefront to generate a consistent, automated stream of inbound business inquiries, reducing their reliance on traditional, unpredictable word-of-mouth marketing.
+                    </p>
                 </div>
-                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-primary" style="width: 100%;">View Brand ↗</a>
+                <a href="https://www.facebook.com/uniqueinteriorislamabad" target="_blank" class="btn-primary" style="width: 100%;">View Brand Ecosystem ↗</a>
             </div>
 
         </div>
@@ -458,29 +649,79 @@
 
     <a href="https://wa.me/923119447930" class="wa-float" target="_blank">
         <svg class="wa-icon" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.5-11.3 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.6 5.5-9.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        Connect on WhatsApp
+        Direct Founder Access
     </a>
 
     <div class="footer-cta">
-        <h2 style="color: #fff; margin-bottom: 10px;">Ready to Scale Your Revenue?</h2>
-        <p style="color: var(--text-muted); margin-bottom: 30px;">Let's discuss how we can engineer your brand's digital growth.</p>
-        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary" style="padding: 15px 35px; font-size: 1.1rem;">Contact Ad-Bis Marketing Hub ↗</a>
+        <h2 style="color: #fff; margin-bottom: 15px; font-size: 2.2rem; letter-spacing: -1px;">Ready to Scale Your Revenue?</h2>
+        <p style="color: var(--text-highlight); margin-bottom: 35px; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Stop wasting budget on 'likes' and start optimizing for 'sales'. Let's discuss how we can engineer an automated inbound ecosystem for your brand.
+        </p>
+        <a href="https://www.instagram.com/ad_bis_marketinghub1/" target="_blank" class="btn-primary" style="padding: 16px 40px; font-size: 1.15rem;">Initiate Strategic Audit ↗</a>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // Initialize Advanced Space Galaxy Particles
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 75, "density": { "enable": true, "value_area": 900 } },
+                "color": { "value": "#00CED1" }, 
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.6, "random": true },
+                "size": { "value": 3.5, "random": true },
+                "line_linked": { "enable": true, "distance": 160, "color": "#00CED1", "opacity": 0.25, "width": 1.2 },
+                "move": { "enable": true, "speed": 1.8, "direction": "none", "random": true, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 200, "line_linked": { "opacity": 0.8 } },
+                    "push": { "particles_nb": 5 }
                 }
-            }
+            },
+            "retina_detect": true
+        });
+
+        // 3D Scroll Physics Engine for Mobile & Desktop
+        const cards = document.querySelectorAll('.tilt-card');
+        
+        function handleScroll() {
+            const triggerBottom = window.innerHeight * 0.88;
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            cards.forEach(card => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenterY = cardRect.top + cardRect.height / 2;
+                
+                // Active class triggers the fade in / slide up reveal
+                if (cardRect.top < triggerBottom) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+
+                // Scroll-based 3D Tilt calculation (The Secret Sauce)
+                if (card.classList.contains('active')) {
+                    const deltaY = (cardCenterY - centerY) / 25; 
+                    const rotateX = -deltaY; 
+                    
+                    // Apply dynamic 3D transformation based on scroll velocity
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) translateY(0)`;
+                }
+            });
         }
-        window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
+
+        // Event Listeners for Performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('load', handleScroll);
     </script>
 
 </body>
