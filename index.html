@@ -812,21 +812,24 @@
         // 3. Zoom-In Reveal Engine (Straight Grid Aligned)
         const cards = document.querySelectorAll('.zoom-card');
         
-        function handleReveal() {
-            const triggerZone = window.innerHeight * 0.90;
-            
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                
-                if (cardTop < triggerZone) {
-                    card.classList.add('active');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
                 }
             });
-        }
-        
-        // Optimize Scroll Performance
-        window.addEventListener('scroll', handleReveal, { passive: true });
-        window.addEventListener('load', handleReveal);
+        }, observerOptions);
+
+        cards.forEach(card => {
+            revealObserver.observe(card);
+        });
     </script>
 </body>
 </html>
